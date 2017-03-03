@@ -1,15 +1,23 @@
-This is a sample spring boot application.
+This is a sample spring boot application in a docker container.
+
+Build with
+```
+./mvnw clean install
+docker build -t bootsample .
+```
+
+or simply
+
+```
+make
+```
 
 Run with
-```
-./mvnw spring-boot:run
-```
 
-You can use HTTPie https://httpie.org/ to test the application.
+```
+docker run --rm -p 8080:8080 bootsample
+```
 
 ```
 http GET :8080/people
- 
-http POST :8080/people firstName=Thomas lastName=Kruse
-http GET :8080/people/1
 ```
