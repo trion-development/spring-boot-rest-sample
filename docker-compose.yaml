@@ -1,0 +1,22 @@
+version: '2'
+services:
+    mysql:
+        extends:
+            file: docker-compose/mysql.yaml
+            service: mysql
+        networks:
+            - database
+    spring-boot:
+        extends:
+            file: docker-compose/services.yaml
+            service: bootsample
+        networks:
+            - database
+        links:
+            - mysql
+        ports:
+            - "8080:8080"
+networks:
+    database:
+volumes:
+    mysql-data:
