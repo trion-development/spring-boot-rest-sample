@@ -17,6 +17,12 @@ pipeline:
 #    commands:
 #      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
 
+  fake-build:
+      image: alpine
+      commands:
+       - "mkdir -p target/"
+       - "touch target/spring-boot-rest-sample-1.0.0.jar"
+
   publish:
     image: plugins/docker
     repo: registry/springapp
