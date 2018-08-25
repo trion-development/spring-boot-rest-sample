@@ -11,5 +11,5 @@ pipeline:
   publish:
     image: plugins/docker
     repo: registry/springapp
-    registry: registry
+    registry: registry.
     insecure: true
