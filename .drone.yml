@@ -1,7 +1,7 @@
 #sample pipeline for kubernetes ci/cd
 pipeline:
   build:
-    image: openjdk:8-alpine
+    image: openjdk:8-slim
     environment:
       VERSION: "${DRONE_TAG}"
       COMMIT: "${DRONE_COMMIT_SHA:0:7}"
