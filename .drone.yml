@@ -1,32 +1,18 @@
 #sample pipeline for kubernetes ci/cd
 pipeline:
   
-  verify-env:
-    image: docker
+  build:
+    image: openjdk:8-slim
+    environment:
+      VERSION: "${DRONE_TAG}"
+      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
     commands:
-     - "echo host: ${DOCKER_HOST}"
-     - "hostname"
-     - "export"
-#     - "docker version"
-  
-#  build:
-#    image: openjdk:8-slim
-#    environment:
-#      VERSION: "${DRONE_TAG}"
-#      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-#    commands:
-#      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
-
-  fake-build:
-      image: alpine
-      commands:
-       - "mkdir -p target/"
-       - "touch target/spring-boot-rest-sample-1.0.0.jar"
+      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
 
   publish:
     image: plugins/docker
-    repo: registry.kube-system/springapp
-    registry: registry.kube-system
+    repo: registry/java/springapp
+    registry: registry
+#    repo: registry.kube-system/springapp
+#    registry: registry.kube-system
     insecure: true
-    debug: true
-    launch_debug: true
