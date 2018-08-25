@@ -10,5 +10,5 @@ pipeline:
 
 #  publish:
 #    image: plugins/docker
-#    repo: registry.docker-registry.svc/springapp
-#    registry: registry.docker-registry.svc
+#    repo: registry.kube-system/springapp
+#    registry: registry.kube-system
