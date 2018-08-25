@@ -13,7 +13,7 @@ pipeline:
     image: plugins/docker
     
     repo: registry:80/java/springapp
-    registry: registry
+    registry: registry:80
     
 #    repo: registry.kube-system/springapp
 #    registry: registry.kube-system
