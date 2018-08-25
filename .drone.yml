@@ -9,16 +9,18 @@ pipeline:
      - "export"
      - "docker version"
   
-  build:
-    image: openjdk:8-slim
-    environment:
-      VERSION: "${DRONE_TAG}"
-      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-    commands:
-      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
+#  build:
+#    image: openjdk:8-slim
+#    environment:
+#      VERSION: "${DRONE_TAG}"
+#      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+#    commands:
+#      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
 
   publish:
     image: plugins/docker
     repo: registry/springapp
     registry: registry.
     insecure: true
+    debug: true
+    launch_debug: true
