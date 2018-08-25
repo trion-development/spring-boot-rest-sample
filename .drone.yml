@@ -6,7 +6,7 @@ pipeline:
       VERSION: "${DRONE_TAG}"
       COMMIT: "${DRONE_COMMIT_SHA:0:7}"
     commands:
-      - "./mvnw clean install"
+      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
 
   publish:
     image: plugins/docker
