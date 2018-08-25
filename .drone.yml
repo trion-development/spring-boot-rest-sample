@@ -1,0 +1,14 @@
+#sample pipeline for kubernetes ci/cd
+pipeline:
+  build:
+    image: openjdk:8-alpine
+    environment:
+      VERSION: "${DRONE_TAG}"
+      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+    commands:
+      - "./mvnw clean install"
+
+#  publish:
+#    image: plugins/docker
+#    repo: registry.docker-registry.svc/springapp
+#    registry: registry.docker-registry.svc
