@@ -25,7 +25,7 @@ pipeline:
 
   publish:
     image: plugins/docker
-    repo: registry/springapp
+    repo: registry.kube-system/springapp
     registry: registry.kube-system
     insecure: true
     debug: true
