@@ -5,6 +5,7 @@ pipeline:
     image: docker
     commands:
      - "echo host: ${DOCKER_HOST}"
+     - "hostname"
      - "docker version"
   
   build:
