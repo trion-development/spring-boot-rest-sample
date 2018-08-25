@@ -8,7 +8,7 @@ pipeline:
     commands:
       - "./mvnw clean install"
 
-#  publish:
-#    image: plugins/docker
-#    repo: registry.kube-system/springapp
-#    registry: registry.kube-system
+  publish:
+    image: plugins/docker
+    repo: registry.kube-system/springapp
+    registry: registry.kube-system
