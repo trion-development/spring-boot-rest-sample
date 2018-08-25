@@ -1,5 +1,11 @@
 #sample pipeline for kubernetes ci/cd
 pipeline:
+  
+  verify-env:
+    image: docker
+    commands:
+     - "docker version"
+  
   build:
     image: openjdk:8-slim
     environment:
