@@ -4,6 +4,7 @@ pipeline:
   verify-env:
     image: docker
     commands:
+     - "echo host: $DOCKER_HOST"
      - "docker version"
   
   build:
