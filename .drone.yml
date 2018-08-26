@@ -1,0 +1,15 @@
+pipeline:
+  build:
+    image: openjdk:8-slim
+    environment:
+      VERSION: "${DRONE_TAG}"
+      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+    commands:
+      - "./mvnw clean install"
+
+publish:
+  image: plugins/docker
+  repo: registry:80/java/springapp
+  registry: registry:80
+  insecure: true
+
