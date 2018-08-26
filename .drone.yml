@@ -1,23 +1,23 @@
 #sample pipeline for kubernetes ci/cd
 pipeline:
 
-#   build:
-#     image: openjdk:8-slim
-#     environment:
-#       VERSION: "${DRONE_TAG}"
-#       COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-#     commands:
-#       - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
-#
-#   publish:
-#     image: plugins/docker
-#
-#     repo: registry:80/java/springapp
-#     registry: registry:80
-#
-# #    repo: registry.kube-system/springapp
-# #    registry: registry.kube-system
-#     insecure: true
+  build:
+    image: openjdk:8-slim
+    environment:
+      VERSION: "${DRONE_TAG}"
+      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+    commands:
+      - "MAVEN_OPTS='-Xmx200m' ./mvnw clean install"
+
+  publish:
+    image: plugins/docker
+
+    repo: registry:80/java/springapp
+    registry: registry:80
+
+#    repo: registry.kube-system/springapp
+#    registry: registry.kube-system
+    insecure: true
 
 
   deploy:
@@ -26,7 +26,7 @@ pipeline:
     #kubernetes_server: "10.96.0.1:443"
     deployment: boot-app
     namespace: spring
-    repo: 192.168.99.100:5000/java/springapp 
+    repo: 192.168.99.100:5000/java/springapp
     container: boot-app
     tag:
         - latest
