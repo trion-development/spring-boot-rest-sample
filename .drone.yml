@@ -7,9 +7,9 @@ pipeline:
     commands:
       - "./mvnw clean install"
 
-publish:
-  image: plugins/docker
-  repo: registry:80/java/springapp
-  registry: registry:80
-  insecure: true
+  publish:
+    image: plugins/docker
+    repo: registry:80/java/springapp
+    registry: registry:80
+    insecure: true
 
