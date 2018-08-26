@@ -22,7 +22,7 @@ pipeline:
 
   deploy:
     image: quay.io/honestbee/drone-kubernetes
-    secrets: [kubernetes_token, kubernetes_cert]
+    secrets: [kubernetes_token, kubernetes_cert, kubernetes_server]
     #kubernetes_server: "10.96.0.1:443"
     deployment: boot-app
     namespace: spring
