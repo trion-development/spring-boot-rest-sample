@@ -22,7 +22,8 @@ pipeline:
 
   deploy:
     image: quay.io/honestbee/drone-kubernetes
-    kubernetes_server: "$${KUBERNETES_PORT}"
+    secrets: [kubernetes_token, kubernetes_cert]
+    kubernetes_server: "10.96.0.1:443"
     deployment: boot-app
     namespace: spring
     repo: registry:80/java/springapp
