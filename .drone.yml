@@ -18,11 +18,9 @@ pipeline:
 #    repo: registry.kube-system/springapp
 #    registry: registry.kube-system
     insecure: true
-
     tags:
      - latest
      - "${DRONE_COMMIT_SHA:0:7}"
-
 
   deploy:
     image: quay.io/honestbee/drone-kubernetes
