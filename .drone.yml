@@ -26,7 +26,7 @@ pipeline:
     #kubernetes_server: "10.96.0.1:443"
     deployment: boot-app
     namespace: spring
-    repo: registry.kube-system:80/java/springapp
+    repo: registry.kube-system.svc.cluster.local/java/springapp
     container: boot-app
     tag:
         - latest
