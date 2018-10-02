@@ -51,6 +51,28 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+                <plugin>
+                  <groupId>com.google.cloud.tools</groupId>
+                  <artifactId>jib-maven-plugin</artifactId>
+                  <version>0.9.11</version>
+                  <configuration>
+                		<allowInsecureRegistries>true</allowInsecureRegistries>
+                    <from>
+                      <image>openjdk:8-alpine</image>
+            <!--          <credHelper></credHelper> -->
+                    </from>
+                    <to>
+                      <image>localhost:5000/trion/${project.artifactId}:${project.version}</image>
+            <!--          <credHelper></credHelper> -->
+                    </to>
+                    <container>
+                      <jvmFlags>
+                        <jvmFlag>-Xms256m</jvmFlag>
+                        <jvmFlag>-Xmx256m</jvmFlag>
+                      </jvmFlags>
+                    </container>
+                  </configuration>
+              </plugin>
         </plugins>
     </build>
 
