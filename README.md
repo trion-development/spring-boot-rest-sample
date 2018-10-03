@@ -1,8 +1,14 @@
 This is a sample spring boot application.
 
-Run with
+Build with with
 ```
-./mvnw spring-boot:run
+./mvnw package jib:dockerBuild
+```
+
+Run with
+
+```
+docker run --rm -p 8080:8080 localhost:5000/trion/spring-boot-rest-sample:1.0.0 
 ```
 
 You can use HTTPie https://httpie.org/ to test the application.
