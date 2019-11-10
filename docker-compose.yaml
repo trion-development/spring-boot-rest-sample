@@ -3,23 +3,17 @@ services:
     mysql:
         image: mysql:5.7
         environment:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=sample
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: sample
         volumes:
             - mysql-data:/var/lib/mysql
-        networks:
-            - database
     spring-boot:
         build: .
         environment:
             - SPRING_PROFILES_ACTIVE=docker
         volumes:
           - /dev/urandom:/dev/random
-        networks:
-            - database
         ports:
             - "8080:8080"
-networks:
-    database:
 volumes:
     mysql-data:
